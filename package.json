@@ -1,0 +1,26 @@
+{
+  "name": "earthquake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zjakwani/earthquake.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zjakwani/earthquake/issues"
+  },
+  "homepage": "https://github.com/zjakwani/earthquake#readme",
+  "dependencies": {
+    "apollo-datasource-rest": "^0.14.0",
+    "apollo-server": "^2.25.1",
+    "graphql": "^15.5.0"
+  }
+}
