@@ -11,7 +11,7 @@ class EarthquakeAPI extends RESTDataSource {
         return response.features.map(earthquake => this.earthquakeReducer(earthquake))
       }
       else {
-        return this.getEarthquakes({lat, long}, (radius + 100))
+        return this.getEarthquakes({lat, long}, (radius + 300))
       }
   }
 

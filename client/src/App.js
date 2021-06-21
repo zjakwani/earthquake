@@ -16,9 +16,9 @@ const GET_EARTHQUAKES = gql`
 
 
 function App() {
-  const [lat, setLat] = useState(65)
+  const [lat, setLat] = useState(33.5)
   const [nextLat, setNextLat] = useState(0)
-  const [long, setLong] = useState(111)
+  const [long, setLong] = useState(-112.1)
   const [nextLong, setNextLong] = useState(0)
 
   function EarthquakeData({ lat, long }) {
@@ -35,6 +35,7 @@ function App() {
                   <h3>{earthquake.location} </h3>
                   <h3>{earthquake.latitude} </h3>
                   <h3>{earthquake.longitude} </h3> 
+                  <h3>----</h3>
                 </div>
               ))} 
         </div>
@@ -67,9 +68,9 @@ function App() {
       <h3>{long}</h3>
       <form onSubmit={resetAll} >
         <label>Enter Lat</label>
-        <input value={nextLat} onChange={handleLatChange}/>
+        <input onChange={handleLatChange}/>
         <label>Enter Long</label>
-        <input value={nextLong} onChange={handleLongChange}/>
+        <input onChange={handleLongChange}/>
         <button type="submit">Submit</button>
       </form>
       <EarthquakeData lat={lat} long={long}/>
