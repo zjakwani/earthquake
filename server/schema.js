@@ -11,7 +11,7 @@ const typeDefs = gql`
 
     # query
     type Query {
-        earthquakes(lat: Float!, long: Float!, radius: Int!): [Earthquake]
+        earthquakes(lat: Float!, long: Float!): [Earthquake]
     }
 `
 module.exports = typeDefs
