@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, FormEvent, ChangeEvent, useEffect } from 'react'
+import React, { useState, FormEvent, ChangeEvent, useEffect, Component } from 'react'
 import { gql, useQuery } from '@apollo/client';
 
 
@@ -13,18 +13,38 @@ const GET_EARTHQUAKES = gql`
     }
   }
 `
+const GET_IP = gql`
+  query GetIp {
+    ip {
+      lat
+      long
+    }
+  }
+`
+
+
+
 
 
 function App() {
-  const [lat, setLat] = useState(33.5)
+
+
+  const { data: ip } = useQuery(GET_IP)
+
+  const ipLat = ip?.ip?.lat
+  const ipLong = ip?.ip?.long
+
+  const [lat, setLat] = useState(35)
   const [nextLat, setNextLat] = useState(0)
-  const [long, setLong] = useState(-112.1)
+  const [long, setLong] = useState(-111)
   const [nextLong, setNextLong] = useState(0)
 
-  function EarthquakeData({ lat, long }) {
-    const { data, loading, error } = useQuery(GET_EARTHQUAKES, {
-      variables: { lat, long }})
+  const { data, loading, error } = useQuery(GET_EARTHQUAKES, {
+    variables: { lat, long }})
 
+
+  function EarthquakeData({ lat, long }) {
+    
     if (loading) return <h5>loading</h5>
     if (error) return <h5>{`Error! ${error.message}`}{lat}{long}</h5>
       return (
@@ -35,7 +55,7 @@ function App() {
                   <h3>{earthquake.location} </h3>
                   <h3>{earthquake.latitude} </h3>
                   <h3>{earthquake.longitude} </h3> 
-                  <h3>----</h3>
+                  <h3>------</h3>
                 </div>
               ))} 
         </div>
@@ -68,9 +88,9 @@ function App() {
       <h3>{long}</h3>
       <form onSubmit={resetAll} >
         <label>Enter Lat</label>
-        <input onChange={handleLatChange}/>
+        <input value={nextLat} onChange={handleLatChange}/>
         <label>Enter Long</label>
-        <input onChange={handleLongChange}/>
+        <input value={nextLong} onChange={handleLongChange}/>
         <button type="submit">Submit</button>
       </form>
       <EarthquakeData lat={lat} long={long}/>

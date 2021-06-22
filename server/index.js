@@ -2,13 +2,15 @@ const { ApolloServer } = require('apollo-server')
 const typeDefs = require('./schema')
 const resolvers = require('./resolvers')
 
-const EarthquakeAPI = require('./datasource')
+const EarthquakeAPI = require('./EarthquakeAPI')
+const ipAPI = require('./ipAPI')
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources: () => ({
-    earthquakeAPI: new EarthquakeAPI()
+    earthquakeAPI: new EarthquakeAPI(),
+    ipAPI: new ipAPI()
   })
 })
 
