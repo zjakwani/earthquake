@@ -36,30 +36,31 @@ function App() {
 
   const [lat, setLat] = useState(35)
   const [nextLat, setNextLat] = useState(0)
-  const [long, setLong] = useState(-111)
+  const [long, setLong] = useState(111)
   const [nextLong, setNextLong] = useState(0)
 
   const { data, loading, error } = useQuery(GET_EARTHQUAKES, {
-    variables: { lat, long }})
+    variables: { lat, long }
+  })
 
 
   function EarthquakeData({ lat, long }) {
-    
+
     if (loading) return <h5>loading</h5>
     if (error) return <h5>{`Error! ${error.message}`}{lat}{long}</h5>
-      return (
-        <div>
-              {data.earthquakes.map((earthquake) => (
-                <div>
-                  <h3>{earthquake.magnitude}</h3>
-                  <h3>{earthquake.location} </h3>
-                  <h3>{earthquake.latitude} </h3>
-                  <h3>{earthquake.longitude} </h3> 
-                  <h3>------</h3>
-                </div>
-              ))} 
-        </div>
-      )
+    return (
+      <div>
+        {data.earthquakes.map((earthquake) => (
+          <div>
+            <h3>{earthquake.magnitude}</h3>
+            <h3>{earthquake.location} </h3>
+            <h3>{earthquake.latitude} </h3>
+            <h3>{earthquake.longitude} </h3>
+            <h3>------</h3>
+          </div>
+        ))}
+      </div>
+    )
   }
 
 
@@ -88,12 +89,12 @@ function App() {
       <h3>{long}</h3>
       <form onSubmit={resetAll} >
         <label>Enter Lat</label>
-        <input value={nextLat} onChange={handleLatChange}/>
+        <input value={nextLat} onChange={handleLatChange} />
         <label>Enter Long</label>
-        <input value={nextLong} onChange={handleLongChange}/>
+        <input value={nextLong} onChange={handleLongChange} />
         <button type="submit">Submit</button>
       </form>
-      <EarthquakeData lat={lat} long={long}/>
+      <EarthquakeData lat={lat} long={long} />
     </div>
   );
 }
