@@ -6,7 +6,7 @@ class EarthquakeAPI extends RESTDataSource {
   }
 
   async getEarthquakes({ lat, long }, radius) {
-      const response = await this.get(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=magnitude&starttime=2021-06-21&latitude=${lat}&longitude=${long}&maxradiuskm=${radius}`)
+      const response = await this.get(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=magnitude&starttime=2021-07-05&latitude=${lat}&longitude=${long}&maxradiuskm=${radius}`)
       if (response.features.length > 0) {
         return response.features.map(earthquake => this.earthquakeReducer(earthquake))
       }

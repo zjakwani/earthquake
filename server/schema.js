@@ -21,6 +21,7 @@ const typeDefs = gql`
     type Query {
         earthquakes(lat: Float!, long: Float!): [Earthquake]
         ip: ip
+        earthquakesIp: [Earthquake]
     }
 `
 module.exports = typeDefs
