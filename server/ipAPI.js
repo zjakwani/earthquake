@@ -16,7 +16,8 @@ class ipAPI extends RESTDataSource {
         state: response.region_name,
         city: response.city,
         lat: parseFloat(response.latitude),
-        long: parseFloat(response.longitude)
+        long: parseFloat(response.longitude),
+        ip: response.ip
       }
     }
 }

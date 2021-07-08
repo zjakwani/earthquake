@@ -15,6 +15,7 @@ const typeDefs = gql`
         city: String!
         lat: Float!
         long: Float!
+        ip: String!
     }
 
     # query
