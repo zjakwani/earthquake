@@ -67,8 +67,8 @@ function App() {
     else {
       return (
         <div>
-          <h3>{lat}</h3>
-          <h3>{long}</h3>
+          <h3>Entered latitude: {lat}</h3>
+          <h3>Entered longitude: {long}</h3>
         </div>
       )
     }
@@ -90,11 +90,11 @@ function App() {
       <div>
         {earthquakes.map((earthquake) => (
           <div>
-            <h3>{earthquake.magnitude}</h3>
-            <h3>{earthquake.location} </h3>
-            <h3>{earthquake.latitude} </h3>
-            <h3>{earthquake.longitude} </h3>
-            <h3>------</h3>
+            <h3>Magnitude: {earthquake.magnitude}</h3>
+            <h3>Location: {earthquake.location} </h3>
+            <h3>Latitude: {earthquake.latitude} </h3>
+            <h3>Longitude: {earthquake.longitude} </h3>
+            <h2>-----------------------</h2>
           </div>
         ))}
       </div>
@@ -122,7 +122,7 @@ function App() {
 
   return (
     <div>
-      <h2>earthquake app</h2>
+      <h2>Earthquake Hub</h2>
       <CurrentInfo/>
       <form onSubmit={resetAll} >
         <label>Enter Lat</label>
