@@ -52,8 +52,8 @@ function App() {
   })
 
   function CurrentInfo() {
-    if (loading || ipLoading) return <h5>loading</h5>
-    if (error || ipError) return <h5>{`Error! ${error.message}`}</h5>
+    if (loading || ipLoading) return <h5>Loading earthquake api call...</h5>
+    if (error || ipError) return <h5>{`There was an error: ${error.message}`}</h5>
     if (lat === 0 && long === 0) {
       return (
         <div>
