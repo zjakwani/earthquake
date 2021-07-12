@@ -13,11 +13,11 @@ class EarthquakeAPI extends RESTDataSource {
         + (d.getMonth() + 1) + "-"
         + d.getDate()
         + `&latitude=${lat}&longitude=${long}&maxradiuskm=${radius}`)
-      if (response.features.length > 3) {
+      if (response.features.length > 4) {
         return response.features.map(earthquake => this.earthquakeReducer(earthquake))
       }
       else {
-        return this.getEarthquakes({lat, long}, (radius + 500))
+        return this.getEarthquakes({lat, long}, (radius + 400))
       }
   }
 
